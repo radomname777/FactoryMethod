@@ -9,9 +9,8 @@ class Program
     static void Main()
     {
 
-        Creator? logistics = null;
-        Product? transport = null;
-
+        Creator? creator = null;
+        Product? product = null;
         while (true)
         {
             Console.WriteLine(@"
@@ -22,17 +21,17 @@ class Program
             Console.Write("\n\tEnter choice: ");
 
 
-            logistics = Console.ReadLine() switch
+            creator = Console.ReadLine() switch
             {
                 "1" => new ConcreteCreatorA(),
                 "2" => new ConcreteCreatorB(),
                 _ => null
             };
 
-            if (logistics == null)
+            if (creator == null)
                 break;
-            transport = logistics?.CreateProduct();
-            transport?.DoStuff();
+            product = creator?.CreateProduct();
+            product?.DoStuff();
         }
     }
 }
